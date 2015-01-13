@@ -12,6 +12,7 @@ zenske <- round(sum(KNJIGE$Spol=="Z")*100/(sum(KNJIGE$Spol=="M")+sum(KNJIGE$Spol
 moski <- round(sum(KNJIGE$Spol=="M")*100/(sum(KNJIGE$Spol=="M")+sum(KNJIGE$Spol=="Z")), digits=2)
 text(0.3, -0.5, paste0(zenske,"%"), col = "black")
 text(0, 0.5, paste0(moski,"%"), col = "black")
+dev.off()
 
 # 
 # pdf("slike/graf1.pdf",paper="a4")
