@@ -19,9 +19,21 @@ names(barve) <- names(drzave)
 barve.zemljevid <- barve[as.character(svet$name_long)]
 barve.zemljevid[is.na(barve.zemljevid)] <- "white"
 
-pdf("slike/knjige.pdf", width=8.27, height=11.69)
+# imenadrzav<-names(drzave)
+# mojs<-svet[svet$name_long %in% imenadrzav,]
+# koordinate<-coordinates(mojs)
+# imena.drzav<-as.character[mojs$name_long]
+
+
+
+
+pdf("slike/knjige.pdf", width=12, height=7)
 plot(svet, col=barve.zemljevid, bg="lightblue")
-legend("topleft", title = 'število knjig po državah', text.font = 2,legend = stevilo, fill = topo.colors(length(stevilo)))
+# text(koordinate, labels=imena.drzav, pos=1, cex=0.25)
+
+
+
+legend("bottomleft", title = 'število knjig po državah', text.font = 2,legend = stevilo, fill = topo.colors(length(stevilo)))
 dev.off()
 
 
