@@ -9,9 +9,10 @@ svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthd
                         "svet", "ne_110m_admin_0_map_units.shp", mapa = "zemljevid",
                         encoding = "Windows-1252")
 
-svet<- svet[svet$continent %in% c("Europe","Asia","South America","North America") | svet$name_long == "Australia",]
+svet<- svet[svet$continent %in% c("Europe","Asia","South America","North America","Africa","Oceania") | svet$name_long == "Australia",]
 
 drzave <- table(KNJIGE$Drzava)
+imenadrzav<-names(drzave)
 stevilo <- unique(drzave)
 stevilo <- stevilo[order(stevilo)]
 barve <- topo.colors(length(stevilo))[match(drzave, stevilo)]
@@ -19,17 +20,28 @@ names(barve) <- names(drzave)
 barve.zemljevid <- barve[as.character(svet$name_long)]
 barve.zemljevid[is.na(barve.zemljevid)] <- "white"
 
-# imenadrzav<-names(drzave)
-# mojs<-svet[svet$name_long %in% imenadrzav,]
-# koordinate<-coordinates(mojs)
-# imena.drzav<-as.character[mojs$name_long]
+imenadrzav<-names(drzave)
+moj<-svet[svet$name_long %in% imenadrzav,]
+koordinate<-coordinates(moj)
+imena.drzav<-as.character(moj$name_long)
 
-
-
+rownames(koordinate) <- imena.drzav
+koordinate["Northern Ireland",2] <- koordinate["Northern Ireland",2]+4.5
+koordinate["Ireland",2] <- koordinate["Ireland",2]+2.0
+koordinate["Ireland",1] <- koordinate["Ireland",1]-1.5
+koordinate["Spain",2] <- koordinate["Spain",2]+5.0
+koordinate["France",2] <- koordinate["France",2]+3.5
+koordinate["Italy",2] <- koordinate["Italy",2]+4.0
+koordinate["Germany",2] <- koordinate["Germany",2]+2.5
+koordinate["Netherlands",2] <- koordinate["Netherlands",2]+4.5
+koordinate["Norway",1] <- koordinate["Norway",1]-5.5
+koordinate["Sweden",2] <- koordinate["Sweden",2]+2.0
+koordinate["England",2] <- koordinate["England",2]+3.5
+koordinate["England",1] <- koordinate["England",1]+2.0
 
 pdf("slike/knjige.pdf", width=12, height=7)
 plot(svet, col=barve.zemljevid, bg="lightblue")
-# text(koordinate, labels=imena.drzav, pos=1, cex=0.25)
+text(koordinate, labels=imena.drzav, pos=1, cex=0.25)
 
 
 
