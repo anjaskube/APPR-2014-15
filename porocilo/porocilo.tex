@@ -6,10 +6,38 @@
 \usepackage{hyperref}
 \usepackage{pdfpages}
 \usepackage{breakurl}
+\usepackage{animate}
 
 \pagestyle{plain}
 
 \begin{document}
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\center
+\textsc{\LARGE Fakulteta za matematiko in fiziko}\\[3 cm]
+\textsc{\Large Poročilo pri predmetu}\\[0.5cm]
+\textsc{\large Analiza podatkov s programom R}\\[2 cm]
+\HRule \\[0.4cm]
+{ \huge \bfseries Analiza najbolj branih knjig}\\[0.4cm]
+\HRule \\[6 cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Avtor:}\\
+Anja \textsc{Skube}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Mentor:} \\
+Dr. Janoš \textsc{Vidali}
+\end{flushright}
+\end{minipage}\\[2 cm]
+{\large \today}\\[3cm]
+\end{titlepage}
+
+
 \title{Poročilo pri predmetu \\
 Analiza podatkov s programom R}
 \author{Anja Skube}
@@ -36,10 +64,11 @@ Povezava do podatkovne tabele:
 
 Cilj projekta je ugotoviti katero vrsto knjig ljudje najraje berejo, ali na prodajanost knjige vpliva spol pisatelja, kako število prodanih izvodov vpliva na to, ali je po knjigi posnet film ali ne ter iz katere države prihajajo pisatelji, ki so napisali 50 najbolj prodajanih knjig na svetu. 
 
-
+\pagebreak
 
 \section{Obdelava, uvoz in čiščenje podatkov}
-Uvozila sem 1 tabelo in ji dodala en manjkajoči stoplec(Država). Tabelo sem dobila iz Wikipedije in jo uvozila v CSV obliki.
+
+Uvozila sem eno tabelo in ji dodala en manjkajoči stoplec (Država). Tabelo sem dobila iz Wikipedije in jo uvozila v CSV formatu(comma-separated value - podatki ločeni z vejico).
 
 Po uvozu tabele sem začela z risanjem grafov. Naredila sem tri grafe. 
 
@@ -47,18 +76,22 @@ Za prvi graf sem uporabila podatke o vrsti knjige. Naredila sem graf, ki primerj
 
 V drugem grafu sem sem primerjala spol pisateljev, saj sem želela videti vpliv spola na prodajanost knjig. Ugotovila sem, da je prevladuje moški spol, to pa verjetno zaradi tega, ker veliko knjig sega se v 18. stoletje, takrat pa so pisali samo moški. 
 
-V tretjem grafu pa sem uporabila podatke o filmih. Želela sem ugotoviti, kakšno je število knjig po katerih so posneli film. 
+V tretjem grafu pa sem uporabila podatke o filmih. Želela sem ugotoviti, kakšno je število knjig po katerih so posneli film. Ugotovila sem, da so filme posneli po večini knjižnjih uspešnic, izjeme so le priročniki in navodila po katerih je seveda ni mogoče posneti filma. 
 
-Za prvi in tretji graf sem izbrala stolpično opbliko (barplot), drugega pa sem naredila kot tortni diagram. Uvozila pa sem jih v pdf obliki. 
+Podatke za četrti gref sem razdelila v 9 skupin od leta 1791 do leta 2007. Nato sem naredila graf, ki prikazuje koliko knjig je bilo napisanih v posameznem obdobju. Izkazalo se je, da je bilo največ najbolj branih knjig napisanih v obdobju 1960-1980. To pa verjetno zato, ker pred tem niso imeli vsi dostopa do knjig, poleg tega pa je bilo malo ljudi, ki bi znali brati oziroma napisati knjigo. 
+
+Za prvi, tretji in četrti graf sem izbrala stolpično opbliko (barplot), drugega pa sem naredila kot tortni diagram. Uvozila pa sem jih v pdf obliki. 
 
 \includepdf{../slike/grafi.pdf}
 \includepdf{../slike/tortni.pdf}
 \includepdf{../slike/graf2.pdf}
+\includepdf{../slike/letoi.pdf}
+
 
 \section{Analiza in vizualizacija podatkov}
 
 
-V tretji fazi projekta sem narisala zemljevid sveta , ki prikazuje število knjig po državah.
+V tretji fazi projekta sem narisala zemljevid sveta , ki prikazuje število knjig po državah. Na zemljevidu je vidno, da je največ najbolj branih knjig napisanih v Zdrženih državah Amerike. Tak rezultat sem najverjetneje dobila zaradi velikosti Združenih držav Amerike. 
 
 % \makebox poravna element, ki je lahko širši od besedila
 \makebox[\textwidth][c]{
@@ -68,6 +101,16 @@ V tretji fazi projekta sem narisala zemljevid sveta , ki prikazuje število knji
 
 
 \section{Napredna analiza podatkov}
+
+
+
+
+\begin{center}
+
+\animategraphics[controls,width=1.2\linewidth]{0.5}{../slike/Film}{1}{4} 
+
+\end{center}
+
 
 
 \end{document}

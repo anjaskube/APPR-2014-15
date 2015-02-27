@@ -24,9 +24,13 @@ dev.off()
 pdf("slike/graf2.pdf",paper="a4")
 tabela2<-table(KNJIGE$Film)
 vek<-c(tabela2)
-barplot(vek, names.arg = c("DA", "NE"), xlab="POSNET FILM- DA/NE", ylab="ŠTEVILO", main= 'ŠTEVILO KNJIG, PO KATERIH SO POSNELI FILM', las=2, cex.names=0.75, col="blue")
+barplot(vek, names.arg = c("DA", "NE"), xlab="POSNET FILM- DA/NE", ylab="ŠTEVILO", main= 'ŠTEVILO KNJIG, PO KATERIH SO POSNELI FILM', las=2, cex.names=0.75, col="lightblue")
 dev.off()
 
+
+pdf("slike/letoi.pdf",paper="a4")
+hist(KNJIGE$"Leto.izdaje", breaks=9, xlab="LETO", ylab="ŠTEVILO KNJIG", main="IZDAJA KNJIG PO LETIH", col="lightblue")
+dev.off()
 
 
 
