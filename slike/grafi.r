@@ -3,7 +3,7 @@ pdf("slike/grafi.pdf",paper="a4")
 tabela<-table(KNJIGE$Vrsta)
 imena<-names(tabela)
 vektor<-c(tabela)
-barplot(vektor, names.arg = imena, xlab="VRSTA", ylab="ŠTEVILO KNJIG", main= 'ŠTEVILO KNJIG PO VRSTAH', las=2, cex.names=0.75, col="red")
+barplot(vektor, names.arg = imena, xlab="VRSTA", ylab="ŠTEVILO KNJIG", main= 'ŠTEVILO KNJIG PO VRSTAH', las=2, cex.names=0.75, col="lightblue")
 dev.off()
 
 pdf("slike/tortni.pdf",paper="a4")

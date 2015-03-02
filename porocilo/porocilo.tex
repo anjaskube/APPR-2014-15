@@ -7,6 +7,9 @@
 \usepackage{pdfpages}
 \usepackage{breakurl}
 \usepackage{animate}
+\usepackage{float}
+
+
 
 \pagestyle{plain}
 
@@ -38,14 +41,15 @@ Dr. Janoš \textsc{Vidali}
 \end{titlepage}
 
 
-\title{Poročilo pri predmetu \\
-Analiza podatkov s programom R}
-\author{Anja Skube}
-\maketitle
-
 \section{Izbira teme}
 
-V projektu bom analizirala 50 najbolj prodajanih knjig vseh časov na svetu. Primerjala bom knjige po:
+V projektu bom analizirala 50 najbolj prodajanih knjig vseh časov na svetu. 
+
+Podatke sem dobila na Wikipediji. Ti podatki so vključevali le nekaj osnovnih informacij o knjigah, kar pa ni bilo dovolj za analizo, zato sem morala poiskati podatke na različnih straneh za vsako posamezno knjigo. 
+Povezava do podatkovne tabele v Wikipediji:
+\url{http://en.wikipedia.org/wiki/List_of_best-selling_books}
+
+Primerjala bom knjige po:
 
 \begin{itemize}
 \item jeziku izvirnika
@@ -57,30 +61,47 @@ V projektu bom analizirala 50 najbolj prodajanih knjig vseh časov na svetu. Pri
 \item koliko del je pisatelj napisal
 \end{itemize}
 
-Začetno tabelo za moj projekt sem dobila na Wikipediji, ostale podatke pa sem morala poiskati na različnih straneh. Podatke sem nato uvozila v csv obliki in iz njih naredila eno tabelo. 
+\null
+Cilj projekta je:
+\begin{itemize}
+\item ugotoviti katero vrsto knjig ljudje najraje berejo
+\item ali na prodajanost knjige vpliva spol pisatelja
+\item ali je po knjigi posnet film ali ne
+\item iz katere države prihajajo pisatelji, ki so napisali 50 najbolj    prodajanih knjig na svetu 
+\end{itemize}
 
-Povezava do podatkovne tabele:
-\url{http://en.wikipedia.org/wiki/List_of_best-selling_books}
-
-Cilj projekta je ugotoviti katero vrsto knjig ljudje najraje berejo, ali na prodajanost knjige vpliva spol pisatelja, kako število prodanih izvodov vpliva na to, ali je po knjigi posnet film ali ne ter iz katere države prihajajo pisatelji, ki so napisali 50 najbolj prodajanih knjig na svetu. 
 
 \pagebreak
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Uvozila sem eno tabelo in ji dodala en manjkajoči stoplec (Država). Tabelo sem dobila iz Wikipedije in jo uvozila v CSV formatu(comma-separated value - podatki ločeni z vejico).
+Podatke sem delno dobila na Wikipediji, manjkajoče podatke pa sem poiskala na različnih straneh, za vsako knjigo posebej. Iz teh podatkov sem v Excelu naredila tabelo in jo uvozila v CSV formatu (comma-separated value - podatki ločeni z vejico). Nato sem ji dodala še en stolpec (Država) in skupno tabelo poimenovala KNJIGE. 
 
-Po uvozu tabele sem začela z risanjem grafov. Naredila sem tri grafe. 
+Po uvozu tabele sem začela z risanjem grafov. Naredila sem štiri grafe.
 
-Za prvi graf sem uporabila podatke o vrsti knjige. Naredila sem graf, ki primerja vrsto knjige (roman, novela, priročnik, pravljica...) in prikaže število posamezne vrste knjig. S tem sem želela pokazati, kakšen delež med 50 najbolj prodajanimi knjigami predstavla posamezna vrsta knjig.
+\begin{enumerate}
+\item{Vrste knjig}
+\newline
+Za prvi graf sem uporabila podatke o vrsti knjig. Naredila sem graf, ki primerja vrsto knjige (roman, novela, priročnik, pravljica...) in prikaže število posamezne vrste knjig. Ugotovila sem, da največji delež med 50 najbolj branimi knjigami predstavlja roman, v veliko manjšem številu pa mu sledita priročnik in pravljica. Zelo majhen del pa predstavljajo novela, navodila, esej in dvevnik.
 
-V drugem grafu sem sem primerjala spol pisateljev, saj sem želela videti vpliv spola na prodajanost knjig. Ugotovila sem, da je prevladuje moški spol, to pa verjetno zaradi tega, ker veliko knjig sega se v 18. stoletje, takrat pa so pisali samo moški. 
 
-V tretjem grafu pa sem uporabila podatke o filmih. Želela sem ugotoviti, kakšno je število knjig po katerih so posneli film. Ugotovila sem, da so filme posneli po večini knjižnjih uspešnic, izjeme so le priročniki in navodila po katerih je seveda ni mogoče posneti filma. 
+\item{Spol pisateljev}
+\newline
+V drugem grafu sem sem primerjala spol pisateljev, saj sem želela videti vpliv spola na prodajanost knjig. Ugotovila sem, da je moški spol bolj zastopan in sicer s skoraj 64 odstotki. Tak rezultat sem dobila zaradi tega, ker veliko knjig sega se v 18. stoletje, takrat pa so imele ženske v družbi slabši položak kot sedaj, zato so knjige pisali samo moški. Tudi če je katero od knjig takrat napisala ženska, je pisala pod moškim prevdonimom. 
 
-Podatke za četrti gref sem razdelila v 9 skupin od leta 1791 do leta 2007. Nato sem naredila graf, ki prikazuje koliko knjig je bilo napisanih v posameznem obdobju. Izkazalo se je, da je bilo največ najbolj branih knjig napisanih v obdobju 1960-1980. To pa verjetno zato, ker pred tem niso imeli vsi dostopa do knjig, poleg tega pa je bilo malo ljudi, ki bi znali brati oziroma napisati knjigo. 
 
-Za prvi, tretji in četrti graf sem izbrala stolpično opbliko (barplot), drugega pa sem naredila kot tortni diagram. Uvozila pa sem jih v pdf obliki. 
+\item{Film}
+\newline
+V tretjem grafu pa sem uporabila podatke o filmih. Želela sem ugotoviti, kakšno je število knjig po katerih so posneli film. Ugotovila sem, da so filme posneli po večini knjižnjih uspešnic, izjeme so le priročniki in navodila po katerih je seveda ni mogoče posneti filma.  
+
+
+\item{Leto izdaje knjig}
+\newline
+Podatke za četrti graf sem razdelila v 9 skupin od leta 1791 do leta 2007. Nato sem naredila graf, ki prikazuje koliko knjig je bilo napisanih v posameznem obdobju. Glede na to, da ena izmed knjig sega v leto 1791, lahko ugotovimo, da so že v tistem času pisali zelo kvalitetne in poučne knjige. Vendar je bilo do leta 1940 zaradi nepismenosti napisanih bolj malo knjig, kar se vidi tudi v grafu. Največ najbolj uspešnih knjig pa je bilo napisanih v obdobju 1960-1980.
+
+
+\end{enumerate}
+
 
 \includepdf{../slike/grafi.pdf}
 \includepdf{../slike/tortni.pdf}
@@ -88,28 +109,84 @@ Za prvi, tretji in četrti graf sem izbrala stolpično opbliko (barplot), drugeg
 \includepdf{../slike/letoi.pdf}
 
 
+Za prvi, tretji in četrti graf sem izbrala stolpično obliko (barplot), drugega pa sem naredila kot tortni diagram. Uvozila pa sem jih v pdf obliki. 
+
+
+\pagebreak
 \section{Analiza in vizualizacija podatkov}
 
-
-V tretji fazi projekta sem narisala zemljevid sveta , ki prikazuje število knjig po državah. Na zemljevidu je vidno, da je največ najbolj branih knjig napisanih v Zdrženih državah Amerike. Tak rezultat sem najverjetneje dobila zaradi velikosti Združenih držav Amerike. 
+V tretji fazi sem uvozila zemljevid sveta in z zemljevida odstranila Arktiko in Antarktiko, ker teh kontinentov nisem potrebovala. Zemljevid prikazuje koliko pisateljev prihaja iz posamezne države. Največ pisateljev prihaja iz Združenih držav Amerike, tak razultat pa sem verjetno dobila zaradi velikosti države. Združenim državam Amerike sledi Velika Britanija, nato pa še ostale države z enim, dvema ali tremi pisatelji. 
 
 % \makebox poravna element, ki je lahko širši od besedila
 \makebox[\textwidth][c]{
 \includegraphics[width=1.6\textwidth]{../slike/knjige.pdf}
 } 
 
-
-
+\newpage
 \section{Napredna analiza podatkov}
 
+V četrti fazi sem uvozila nove podatke. Ti podatki zajemajo 10 najbolj branih knjig od leta 2011 do 2014. Za vsako leto sem v Excelu naredila posebno tabelo in jih potem uvozila v CSV obliki. Te štiri tabele zajemajo podatke o:
+\begin{itemize}
+\item pisatelju
+\item spolu pisatelja
+\item oceni knjige
+\item ali je po knjigi posnet film ali ne
+\item koliko strani ima knjiga
+\item iz katere države v Združenih državah Amerike prihaja pisatelj
+\end{itemize}
+
+Ugotovila sem naslednje:
+\begin{enumerate}
+
+\item{Film}
+\newline
+Za podrobnejšo analizo knjig, katerih pisatelji prihajajo iz Združenih držav Amerike sem se odločila zato, ker sem v tretji fazi ugotovila, da veliko pisateljev prihaja iz Združenih držav Amerike. Našla sem seznam desetih najbolj branih knjig in nato poiskala podatke za vsako posamezno knjigo. 
+
+Zanimalo me je, po koliko knjigah, ki so bile napisane od leta 2011 do 2014 so posneli filme. Zdelo se mi je, da bo za zadnji dve leti bolj malo filmov, saj snemanje filma traja dlje časa in zato filma še ni. Naredila sem štiri grafe in te grafe združila v animacijo, da so podatki bolj pregledni.  
+Ugotovila sem, da se število knjig po katerih je bil posnet film v letu 2014 res zmanjša, kar je potrdilo mojo hipotezo.
+
+\item{Zemljevid}
+\newline
+Nato sem se odločila, da pogledam še od kod točneje prihajajo pisatelji knjig. Naredila sem štiri različne zemljevide in zopet naredila animacijo. 
 
 
+\item{Ocene}
+\newline
+Ker sem za te knjige med podatki našla tudi ocene, sem se odločila, da jih primarjam po posameznih letih. Zdelo se mi je, da so ocene, ki segajo od 0 do 5 dokaj podobne, vendar sem se odločila da to preverim. Izračunala sem povprečje 10 knjig v posameznem letu in ta povprečja združila v en graf, tako da vsak stolpec predstavlja eno leto. Ugotovila sem, da so ocene res kar podobne, iz česar lahko sklepamo, da so najbolj brane knjige tudi zelo kvalitetne. 
 
-\begin{center}
+\item{Strani}
+\newline
+Na koncu pa me je zanimalo še, kakšno je povprečje strani knjig v posameznem letu. Tudi tukaj sem izračunala povprečje 10 knjig v posameznem letu in povprečje za vsako leto prikazala z enim stolpcem v grafu. 
+\end{enumerate}
 
-\animategraphics[controls,width=1.2\linewidth]{0.5}{../slike/Film}{1}{4} 
 
-\end{center}
+\pagebreak
+%animacija za film
+\begin{figure}[H]
+\animategraphics[controls,width=1.2\linewidth]{0.5}{../slike/Film}{0}{4} 
+\caption{Animacija, ki prikazuje po kakšnem številu knjig je bil posnet film}
+\end{figure}
+
+\pagebreak
+%animacija zemljevid
+\begin{figure}[H]
+\animategraphics[controls,width=1.2\linewidth]{0.5}{../slike/amerika}{1}{4} 
+\caption{Animacija, ki prikazuje iz katerih držav v ZDA prihajajo pisatelji}
+\end{figure}
+
+\pagebreak
+\begin{figure}[H]
+\includepdf[width=1.2\textwidth]{../slike/povprecneocene.pdf}
+\caption{Graf povprečnih ocen za knjige v posameznih letih}
+\end{figure}
+
+\pagebreak
+\begin{figure}[H]
+\includepdf[width=1.2\textwidth]{../slike/povprecnestrani.pdf}
+\caption{Graf povprečnih strani za knjige v posameznih letih}
+\end{figure}
+
+
 
 
 
