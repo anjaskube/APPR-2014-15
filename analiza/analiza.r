@@ -91,7 +91,7 @@ library(rgeos)
 gpclibPermit()
 
 source("lib/uvozi.zemljevid.r")
-pdf("slike/drzave_zda.pdf")
+
 
 USA <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/states_21basic.zip", "USA", "states.shp", mapa = "zemljevid")
 
